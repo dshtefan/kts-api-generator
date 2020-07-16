@@ -1,0 +1,3 @@
+rootProject.name = 'kts-api-generator'
+include ':app', ':aprocessor', ':annotations'
+
