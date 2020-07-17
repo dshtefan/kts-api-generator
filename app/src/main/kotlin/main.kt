@@ -7,9 +7,10 @@ import kotlin.reflect.full.hasAnnotation
 @ExperimentalStdlibApi
 fun main() {
     val tClass = Test("testName")::class
-    //val u = tClass.hasAnnotation<TestTS>()
+    /*val u = tClass.hasAnnotation<TestTS>()
     val i: Collection<KFunction<*>> = tClass.functions//.filter { it.hasAnnotation<TestTS>() }.map { print(it) }
     for (function in i) {
         println(function.annotations.filter { it.annotationClass == GenerateTS::class })
-    }
+    }*/
+    println(tClass.simpleName)
 }
