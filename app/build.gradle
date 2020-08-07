@@ -1,18 +1,30 @@
+buildscript{
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'com.jetbrains.gradle.plugin.generateTS:generatets:1.0-SNAPSHOT'
+    }
+
+}
 plugins {
     id 'java'
     id 'org.jetbrains.kotlin.jvm'
     id 'war'
     id 'kotlin-kapt'
 }
+apply plugin: 'generatets'
 
 group 'com.jetbrains'
 version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     kapt project(':aprocessor')
     implementation project(':annotations')
@@ -26,4 +38,12 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+generateTypeScript {
+    jsonLibrary = 'jackson2'
+    classes = ['testclass.Test', 'testclass.Person']
+    outputFile = 'build/sample.ts'
+    outputFileType ='implementationFile'
+    outputKind = 'module'
 }
