@@ -1,3 +1,2 @@
 rootProject.name = 'kts-api-generator'
-include ':app', ':aprocessor', ':annotations', 'generateTSPlugin'
-
+include ':app', 'generateTSPlugin'

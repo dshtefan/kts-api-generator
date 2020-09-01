@@ -1,16 +1,7 @@
 package testclass
 
-import com.jetbrains.annotations.GenerateTS
-import com.jetbrains.annotations.TestTS
-import java.net.URLClassLoader
-import java.util.function.Predicate
+class Test(override val name: String): Name {
 
-@GenerateTS
-@TestTS
-class Test(n: String) {
-    val name: String = n
-
-    @GenerateTS
     fun testFun(): String = name
 
     override fun toString(): String = name
@@ -22,4 +13,8 @@ class Person {
     var hasChildren = false
     var tags: List<String>? = null
     var emails: Map<String, String>? = null
+}
+
+interface Name {
+    val name: String
 }
